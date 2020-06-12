@@ -1,0 +1,40 @@
+{
+  "name": "@royalnavy/css-framework",
+  "description": "Foundational CSS Framework for Royal Navy components and applications.",
+  "version": "2.9.0-alpha.15",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Royal Navy",
+  "contributors": [
+    "hxltrhuxze <hxltrhuxze@royalnavy.io> (royalnavy.io)",
+    "antictor <antictor@royalnavy.io> (royalnavy.io)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Royal-Navy/design-system"
+  },
+  "homepage": "https://github.com/Royal-Navy/design-system/tree/develop/packages/css-framework#readme",
+  "license": "MIT",
+  "main": "index.scss",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "sass --style=compressed index.scss dist/styles.css",
+    "lint": "stylelint ./index.scss",
+    "lint-staged": "lint-staged",
+    "watch": "sass --watch index.scss dist/styles.css",
+    "prepare": "yarn build"
+  },
+  "lint-staged": {
+    "*.@(scss)": "stylelint"
+  },
+  "devDependencies": {
+    "lint-staged": "^9.5.0",
+    "sass": "^1.25.0",
+    "stylelint": "^13.0.0",
+    "stylelint-junit-formatter": "^0.2.2"
+  }
+}

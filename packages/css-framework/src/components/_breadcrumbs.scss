@@ -1,0 +1,50 @@
+@use "../abstracts/functions" as f;
+@use "../config" as config;
+
+.rn-breadcrumbs {
+  display: block;
+  font-size: f.font-size("base");
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1;
+}
+
+.rn-breadcrumbs__breadcrumb {
+  display: inline-block;
+  vertical-align: top;
+  transition: all config.$animation-timing;
+  line-height: 1;
+
+  > a {
+    color: f.color("neutral", "400");
+    font-weight: 400;
+    text-decoration: none;
+    &:hover {
+      color: f.color("action", "500");
+    }
+  }
+
+  svg {
+    margin: 0 f.spacing("2");
+  }
+
+  span, a {
+    vertical-align: top;
+  }
+}
+
+
+.rn-breadcrumbs__breadcrumb:hover ~ .rn-breadcrumbs__breadcrumb {
+  opacity: 0.2;
+}
+
+.rn-breadcrumbs__title {
+  font-weight: 700;
+  cursor: default;
+}
+
+.rn-breadcrumbs__separator {
+  display: inline-block;
+  color: f.color("neutral", "200");
+}

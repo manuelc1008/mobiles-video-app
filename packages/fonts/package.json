@@ -1,0 +1,10 @@
+{
+  "name": "@royalnavy/fonts",
+  "version": "2.9.0-alpha.15",
+  "main": "index.css",
+  "author": "Royal Navy",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}

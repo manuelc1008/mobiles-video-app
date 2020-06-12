@@ -1,0 +1,45 @@
+{
+  "name": "@royalnavy/icon-library",
+  "version": "2.9.0-alpha.15",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "author": "Royal Navy",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "dist/types/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "run-s svgr exports build:es build:cjs types",
+    "build:es": "NODE_ENV=es babel src --out-dir \"dist/es\" --extensions \".ts,.tsx\"",
+    "build:cjs": "NODE_ENV=cjs webpack -p --config=webpack/prod.js",
+    "svgr": "rm -rf src/icons; svgr --ext tsx -d src/icons src/assets/**/; rm src/icons/index.tsx",
+    "exports": "./generate-exports.sh",
+    "types": "tsc --emitDeclarationOnly --declarationMap --declaration --noEmit false --isolatedMOdules false --allowJs false --outDir dist/types",
+    "prepare": "yarn build"
+  },
+  "dependencies": {
+    "react": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@svgr/babel-plugin-add-jsx-attribute": "^5.4.0",
+    "@svgr/cli": "^5.1.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
+  }
+}
